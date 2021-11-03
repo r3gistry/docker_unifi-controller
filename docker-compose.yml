@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  mongodb:
+    image: "mongo:3.6-stretch"
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb:/data/db/
+  unifi-network:
+    image: "r3gistry/unifi-network:YOUR_VERSION"
+    ports:
+      - "YOUR_PORT_1:YOUR_PORT_1"
+      - "YOUR_PORT_2:YOUR_PORT_2"
+      - "YOUR_PORT_3:YOUR_PORT_3"
+      - "YOUR_PORT_4:YOUR_PORT_4"
+      - "YOUR_PORT_5:YOUR_PORT_5"
+      - "YOUR_PORT_6:YOUR_PORT_6/udp"
+      - "YOUR_PORT_7:YOUR_PORT_7/udp"
+    depends_on:
+      - mongodb
+    volumes:
+      - unifi-network:/mnt/unifi-network/
+
+volumes:
+  mongodb:
+  unifi-network:
