@@ -17,6 +17,7 @@ services:
       - "YOUR_PORT_5:YOUR_PORT_5"
       - "YOUR_PORT_6:YOUR_PORT_6/udp"
       - "YOUR_PORT_7:YOUR_PORT_7/udp"
+    command: ["start"]
     depends_on:
       - mongodb
     volumes:
