@@ -14,7 +14,9 @@ apk add --no-cache unzip \
 && unzip UniFi.unix.zip \
 && mkdir /usr/local/unifi-network/ \
 && mv UniFi/* /usr/local/unifi-network/ \
+&& mkdir /usr/local/unifi-network/data/ \
 && ln -s /mnt/unifi-network/data/ /usr/local/unifi-network/data/ \
+&& mkdir /usr/local/unifi-network/cert/ \
 && ln -s /mnt/unifi-network/cert/ /usr/local/unifi-network/cert/ \
 && rm -r * \
 && apk del unzip
