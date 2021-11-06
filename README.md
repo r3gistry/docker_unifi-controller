@@ -20,6 +20,12 @@ $ docker build YOUR_VERSION/ --tag r3gistry/unifi-network:YOUR_VERSION
 $ docker run -v unifi-controller:/mnt/unifi-network/ -d --name YOUR_CONTAINER_NAME -p YOUR_PORT_1:YOUR_PORT_1 -p YOUR_PORT_2:YOUR_PORT_2 -p YOUR_PORT_3:YOUR_PORT_3 -p YOUR_PORT_4:YOUR_PORT_4 -p YOUR_PORT_5:YOUR_PORT_5 -p YOUR_PORT_6:YOUR_PORT_6/udp -p YOUR_PORT_7:YOUR_PORT_7/udp r3gistry/unifi-network:YOUR_VERSION start
 ```
 
+- To run with Compose after updating `docker-compose.yml`:
+
+```console
+$ docker-compose up
+```
+
 - To fetch logs of a container:
 
 ```console
