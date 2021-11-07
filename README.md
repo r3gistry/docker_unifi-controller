@@ -20,6 +20,15 @@ $ docker build YOUR_VERSION/ --tag r3gistry/unifi-network:YOUR_VERSION
 $ docker-compose up
 ```
 
+After first run, stop containers and add the following lines to `system.properties` at `unifi-network_data`:
+
+```
+db.mongo.local=false
+db.mongo.uri=mongodb://mongodb:27017/unifi-network
+statdb.mongo.uri=mongodb://mongodb:27017/unifi-network_stat
+unifi.db.name=unifi
+```
+
 - To fetch logs of a container:
 
 ```console

@@ -6,7 +6,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongodb:/data/db/
+      - "mongodb:/data/db/"
   unifi-network:
     image: "r3gistry/unifi-network:YOUR_VERSION"
     ports:
@@ -16,15 +16,14 @@ services:
       - "YOUR_PORT_4:YOUR_PORT_4"
       - "YOUR_PORT_5:YOUR_PORT_5"
       - "YOUR_PORT_6:YOUR_PORT_6/udp"
-      - "YOUR_PORT_7:YOUR_PORT_7/udp"
     command: ["start"]
     depends_on:
       - mongodb
     volumes:
-      - unifi-network_data:/mnt/unifi-network/data/
-      - unifi-network_logs:/mnt/unifi-network/logs/
-      - unifi-network_cert:/mnt/unifi-network/cert/
-      - unifi-network_run:/mnt/unifi-network/run/
+      - "unifi-network_data:/mnt/unifi-network/data/"
+      - "unifi-network_logs:/mnt/unifi-network/logs/"
+      - "unifi-network_cert:/mnt/unifi-network/cert/"
+      - "unifi-network_run:/mnt/unifi-network/run/"
 
 volumes:
   mongodb:
