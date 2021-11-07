@@ -21,8 +21,14 @@ services:
     depends_on:
       - mongodb
     volumes:
-      - unifi-network:/mnt/unifi-network/
+      - unifi-network_data:/mnt/unifi-network/data/
+      - unifi-network_logs:/mnt/unifi-network/logs/
+      - unifi-network_cert:/mnt/unifi-network/cert/
+      - unifi-network_run:/mnt/unifi-network/run/
 
 volumes:
   mongodb:
-  unifi-network:
+  unifi-network_data:
+  unifi-network_logs:
+  unifi-network_cert:
+  unifi-network_run:
