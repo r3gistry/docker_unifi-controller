@@ -20,7 +20,7 @@ $ docker build YOUR_VERSION/ --tag r3gistry/unifi-network:YOUR_VERSION
 $ docker-compose up
 ```
 
-After first run, stop containers and add the following lines to `system.properties` at `unifi-network_data`:
+After first run, stop containers, add the following lines and make changes to `system.properties` at `unifi-network_data`:
 
 ```
 db.mongo.local=false
