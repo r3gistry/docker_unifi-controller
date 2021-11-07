@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-alpine3.9
+FROM openjdk:8-jre-slim-buster
 
 LABEL maintainer="R3GISTRY"
 LABEL description="UniFi-Network in Docker."
@@ -10,7 +10,9 @@ https://dl.ui.com/unifi/6.4.54/UniFi.unix.zip \
 .
 
 RUN \
-apk add --no-cache unzip \
+apt-get update \
+&& apt-get -y --no-install-recommends unzip \
+&& rm -rf /var/lib/apt/lists/* \
 && unzip UniFi.unix.zip \
 && mkdir /usr/local/unifi-network/ \
 && mv UniFi/* /usr/local/unifi-network/ \
@@ -19,7 +21,7 @@ apk add --no-cache unzip \
 && ln -s /mnt/unifi-network/cert/ /usr/local/unifi-network/cert \
 && ln -s /mnt/unifi-network/run/ /usr/local/unifi-network/run \
 && rm -r * \
-&& apk del unzip
+&& apt-get -y --auto-remove purge unzip
 
 VOLUME ["/mnt/unifi-network/data/", "/mnt/unifi-network/logs/", "/mnt/unifi-network/cert/", "/mnt/unifi-network/run/"]
 
