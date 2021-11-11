@@ -11,7 +11,7 @@ https://dl.ui.com/unifi/6.4.54/UniFi.unix.zip \
 
 RUN \
 apt-get update \
-&& apt-get -y --no-install-recommends unzip \
+&& apt-get -y --no-install-recommends install unzip \
 && rm -rf /var/lib/apt/lists/* \
 && unzip UniFi.unix.zip \
 && mkdir /usr/local/unifi-network/ \
