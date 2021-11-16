@@ -19,11 +19,10 @@ apt-get update \
 && ln -s /mnt/unifi-network/data/ /usr/local/unifi-network/data \
 && ln -s /mnt/unifi-network/logs/ /usr/local/unifi-network/logs \
 && ln -s /mnt/unifi-network/cert/ /usr/local/unifi-network/cert \
-&& ln -s /mnt/unifi-network/run/ /usr/local/unifi-network/run \
 && rm -r * \
 && apt-get -y --auto-remove purge unzip
 
-VOLUME ["/mnt/unifi-network/data/", "/mnt/unifi-network/logs/", "/mnt/unifi-network/cert/", "/mnt/unifi-network/run/"]
+VOLUME ["/mnt/unifi-network/data/", "/mnt/unifi-network/logs/", "/mnt/unifi-network/cert/"]
 
 ENTRYPOINT ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-jar", "/usr/local/unifi-network/lib/ace.jar"]
 CMD ["help"]
